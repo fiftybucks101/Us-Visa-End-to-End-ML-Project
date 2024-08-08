@@ -65,7 +65,7 @@ class DataIngestion:
         except Exception as e:
             raise USvisaException(e,sys)
         
-    def initiate_data_ingestion(self) ->DataIngestionArtifact:
+    def initiate_data_ingestion(self) :
         """
         Method Name :   initiate_data_ingestion
         Description :   This method initiates the data ingestion components of training pipeline 
@@ -88,10 +88,5 @@ class DataIngestion:
                 "Exited initiate_data_ingestion method of Data_Ingestion class"
             )
 
-            data_ingestion_artifact = DataIngestionArtifact(train_data_csv=self.data_ingestion_config.training_data_file_path,
-            test_data_csv=self.data_ingestion_config.testing_data_file_path)
-            
-            logging.info(f"Data ingestion artifact: {data_ingestion_artifact}")
-            return data_ingestion_artifact
         except Exception as e:
             raise USvisaException(e,sys)
