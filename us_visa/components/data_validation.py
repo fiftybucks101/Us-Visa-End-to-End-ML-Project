@@ -148,8 +148,12 @@ class DataValidation:
                 if drift_status:
                     logging.info(f"Drift detected.")
                     validation_error_msg = "Drift detected"
+                    with open(self.data_validation_config.data_validation_status_file, 'w') as f:
+                        f.write(f"Validation Status: {False}")
                 else:
                     validation_error_msg = "Drift not detected"
+                    with open(self.data_validation_config.data_validation_status_file, 'w') as f:
+                        f.write(f"Validation Status: {validation_status}")
             else:
                 logging.info(f"Validation_error: {validation_error_msg}")
                 
